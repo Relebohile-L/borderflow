@@ -81,13 +81,15 @@ export function Badge({ status }) {
 }
 
 const ROLE_LABELS = {
-  dispatcher:   'Dispatcher',
-  driver:       'Driver',
-  port_agent:   'Port Agent',
-  manager:      'Management',
-  depot_clerk:  'Depot Clerk',
-  border_agent: 'Border Agent',
-  client:       'Customer',
+  dispatcher:    'Dispatcher',
+  driver:        'Driver',
+  port_agent:    'Port Agent',
+  manager:       'Management',
+  depot_clerk:   'Depot Clerk',
+  depot_manager: 'Depot Manager',
+  yard_clerk:    'Yard Clerk',
+  border_agent:  'Border Agent',
+  client:        'Customer',
 };
 
 export function Nav({ role, site, user }) {

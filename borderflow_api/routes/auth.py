@@ -8,6 +8,8 @@ VALID_STAFF_ROLES = [
     "driver",
     "dispatcher",
     "depot_clerk",
+    "depot_manager",
+    "yard_clerk",
     "port_agent",
     "border_agent",
     "manager",
