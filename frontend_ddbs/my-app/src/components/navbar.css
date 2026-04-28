@@ -1,0 +1,63 @@
+/* Add to Navbar.css */
+.user-info-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 25px;
+  margin-right: 10px;
+}
+
+.user-avatar {
+  font-size: 1.2rem;
+}
+
+.user-details {
+  text-align: left;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.user-role {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(220, 53, 69, 0.8);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.logout-btn:hover {
+  background: #dc3545;
+}
+
+.sync-status {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.sync-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff9800;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 0.7rem;
+  min-width: 18px;
+  text-align: center;
+}

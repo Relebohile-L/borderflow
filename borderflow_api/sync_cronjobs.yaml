@@ -1,0 +1,109 @@
+# ─────────────────────────────────────────
+# SA SYNC CRONJOB
+# ─────────────────────────────────────────
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sync-worker-sa
+spec:
+  schedule: "*/5 * * * *"       # runs every 5 minutes
+  concurrencyPolicy: Forbid     # never run two at the same time
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: sync-worker
+              image: borderflow-api:latest
+              imagePullPolicy: Never
+              command: ["python", "/app/sync_worker.py"]
+              env:
+                - name: SITE
+                  value: "sa"
+                - name: DB_HOST
+                  value: "sa-db-service"
+                - name: DB_NAME
+                  value: "borderflow_sa"
+                - name: DB_USER
+                  value: "root"
+                - name: DB_PASS
+                  value: "root"
+                - name: DB_PORT
+                  value: "3306"
+                - name: CONTROL_URL
+                  value: "http://control-api/control/sync"
+
+---
+# ─────────────────────────────────────────
+# MOZ SYNC CRONJOB
+# ─────────────────────────────────────────
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sync-worker-moz
+spec:
+  schedule: "*/5 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: sync-worker
+              image: borderflow-api:latest
+              imagePullPolicy: Never
+              command: ["python", "/app/sync_worker.py"]
+              env:
+                - name: SITE
+                  value: "moz"
+                - name: DB_HOST
+                  value: "moz-db-service"
+                - name: DB_NAME
+                  value: "borderflow_moz"
+                - name: DB_USER
+                  value: "root"
+                - name: DB_PASS
+                  value: "root"
+                - name: DB_PORT
+                  value: "3306"
+                - name: CONTROL_URL
+                  value: "http://control-api/control/sync"
+
+---
+# ─────────────────────────────────────────
+# MRU SYNC CRONJOB
+# ─────────────────────────────────────────
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sync-worker-mru
+spec:
+  schedule: "*/5 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: sync-worker
+              image: borderflow-api:latest
+              imagePullPolicy: Never
+              command: ["python", "/app/sync_worker.py"]
+              env:
+                - name: SITE
+                  value: "mru"
+                - name: DB_HOST
+                  value: "mru-db-service"
+                - name: DB_NAME
+                  value: "borderflow_mru"
+                - name: DB_USER
+                  value: "root"
+                - name: DB_PASS
+                  value: "root"
+                - name: DB_PORT
+                  value: "3306"
+                - name: CONTROL_URL
+                  value: "http://control-api/control/sync"

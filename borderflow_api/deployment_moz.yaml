@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: borderflow-api-moz
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: borderflow-api-moz
+  template:
+    metadata:
+      labels:
+        app: borderflow-api-moz
+    spec:
+      containers:
+      - name: api
+        image: borderflow-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+        env:
+        - name: SITE
+          value: "moz"

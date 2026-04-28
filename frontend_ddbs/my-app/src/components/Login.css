@@ -1,0 +1,306 @@
+/* src/components/Login.css */
+.login-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .login-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: slideUp 0.5s ease;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .login-logo {
+    font-size: 4rem;
+    margin-bottom: 10px;
+  }
+  
+  .login-header h1 {
+    color: #333;
+    margin: 10px 0;
+    font-size: 2rem;
+  }
+  
+  .login-header p {
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  /* Country Selector */
+  .country-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .country-btn {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .country-btn:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+  }
+  
+  .country-btn.active {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  .country-flag {
+    font-size: 2rem;
+  }
+  
+  .country-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  /* Role Selector */
+  .role-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 5px;
+  }
+  
+  .role-btn {
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+  
+  .role-btn:hover {
+    border-color: #667eea;
+    background: #f8f9fa;
+  }
+  
+  .role-btn.active {
+    border-color: #667eea;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  .role-icon {
+    font-size: 1.8rem;
+  }
+  
+  .role-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .role-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  
+  .role-desc {
+    font-size: 0.7rem;
+    opacity: 0.8;
+  }
+  
+  /* Input Fields */
+  .input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 12px;
+    font-size: 1.2rem;
+  }
+  
+  .input-with-icon input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+  
+  .input-with-icon input:focus {
+    outline: none;
+    border-color: #667eea;
+  }
+  
+  /* Demo Info */
+  .demo-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+  }
+  
+  .demo-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .demo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .demo-country {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .demo-country code {
+    background: #e9ecef;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+  }
+  
+  .demo-note {
+    margin-top: 8px;
+    color: #666;
+    font-size: 0.7rem;
+  }
+  
+  /* Error Message */
+  .error-message {
+    background: #fee;
+    color: #dc3545;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  
+  /* Login Button */
+  .login-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .login-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  .login-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Site Info */
+  .site-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f5e9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .info-icon {
+    font-size: 1.5rem;
+  }
+  
+  .info-text strong {
+    display: block;
+    color: #2e7d32;
+  }
+  
+  .info-text p {
+    margin: 5px 0 0;
+    font-size: 0.8rem;
+    color: #555;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .login-card {
+      padding: 25px;
+    }
+    
+    .country-selector {
+      grid-template-columns: 1fr;
+    }
+    
+    .role-selector {
+      grid-template-columns: 1fr;
+    }
+    
+    .demo-grid {
+      font-size: 0.7rem;
+    }
+  }
