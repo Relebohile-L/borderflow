@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify
 from db import get_db
+from config import Config
 import bcrypt
 
 auth_bp = Blueprint("auth", __name__)
@@ -49,11 +50,15 @@ def login():
     if not database:
         return jsonify({"error": "Invalid username prefix. Use sa_, moz_, mru_, or control_"}), 400
 
+    # Each pod only serves its own site — reject cross-site logins cleanly
+    if database != Config.DB_NAME:
+        return jsonify({"error": f"This portal serves {Config.SITE.upper()} accounts only. Use the {site} portal for {site} credentials."}), 403
+
     # Control tower only allows managers
     if site == "CONTROL" and role != "manager":
         return jsonify({"error": "Only managers can access the control tower"}), 403
 
-    db     = get_db(database=database)
+    db     = get_db()
     cursor = db.cursor(dictionary=True)
 
     # ── CLIENT LOGIN ──────────────────────────────────────────────────────────
